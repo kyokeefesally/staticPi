@@ -1,0 +1,6 @@
+[staticIPie]
+# config paramaters
+interface=eth0
+ip_address=10.31.76.35/23
+routers=10.31.76.1
+domain_name_servers=8.8.8.8

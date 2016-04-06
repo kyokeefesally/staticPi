@@ -1,0 +1,9 @@
+[Unit]
+Description=Launcher for StaticIPie utility
+
+[Service]
+Type=simple
+ExecStart=/home/pi/staticIPie/staticipie.py
+
+[Install]
+WantedBy=multi-user.target
