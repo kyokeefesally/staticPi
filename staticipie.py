@@ -2,6 +2,7 @@
 
 from __future__ import print_function
 import os
+import os.path
 import time
 
 try:
@@ -9,7 +10,9 @@ try:
 except ImportError:
 	from ConfigParser import ConfigParser  # ver. < 3.0
 
-def getdata():
+
+#if ( not os.path.isfile('/etc/dhcpcd_backup.conf')):
+def config_static_ip():	
 	# instantiate
 	config = ConfigParser()
 
@@ -100,13 +103,14 @@ def getdata():
 			#print(static_ip_config)
 
 			#print("restarting eth0 interface")
-			time.sleep(5)
-			os.system("sudo ifdown eth0")
-			time.sleep(10)
-			os.system("sudo ifup eth0")
-			time.sleep(10)
-			os.system("sudo /etc/init.d/networking restart")
+
+			#os.system("sudo ifdown eth0")
+			#os.system("sudo ifup eth0")
+			#os.system("sudo /etc/init.d/networking restart")
 			#os.system("sudo systemctl daemon-reload")
+			#time.sleep(30)
+			#os.system("sudo /etc/init.d/networking restart")
+			#os.system('sudo reboot')
 
 
 			#print(temp_config)
@@ -119,6 +123,11 @@ def getdata():
 		#print("staticipie.txt config file is missing a required key")
 		exit()
 
+config_static_ip()
 
-getdata()
-#writeconf()
+#if os.path.isfile('/etc/dhcpcd_backup.conf'):
+#	exit()
+#elif ( not os.path.isfile('/etc/dhcpcd_backup.conf')):
+#	config_static_ip()
+
+
