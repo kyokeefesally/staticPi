@@ -1,0 +1,11 @@
+[Unit]
+Description=Launcher for inupdown shell script to restart eth0 interface
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/staticIPie/inupdown
+
+[Install]
+WantedBy=multi-user.target
